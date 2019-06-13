@@ -3,27 +3,14 @@
 <head>
  <meta charset="UTF-8">
  <title>A sample page</title>
- <script>
- /* eslint-disable no-unused-vars */
-
- function echo(arg) {
-   const printArea = document.getElementById("main");
-   const p = document.createElement("p");
-   p.textContent = arg;
-   printArea.appendChild(p);
- }
- </script>
+ <script src="helper.js"></script>
 </head>
 <body>
  <div id="main">
 
  </div>
  <script>
-  var indday = new Date('July 4, 1776');
-  var day1 = indday.getDay();
-  // Sunday - Saturday : 0 - 6
-
-   echo(day1);
+   echo("Hello World!");
    console.log("Foo, bar.");
  </script>
 </body>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>A sample page</title>
+  <script>
+    /* eslint-disable no-unused-vars */
+    function echo(arg) {
+      const printArea = document.getElementById("main");
+      const p = document.createElement("p");
+      p.textContent = arg;
+      printArea.appendChild(p);
+    }
+  </script>
+</head>
+<body>
+  <div id="main">
+
+  </div>
+  <script>
+    var indDay = new Date('July 4, 1776');
+    var day1 = indDay.getDay();
+    // Sunday - Saturday : 0 - 6
+    echo(day1);
+    console.log("Foo, bar.");
+  </script>
+</body>
+</html>
