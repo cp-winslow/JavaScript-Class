@@ -7,11 +7,9 @@
     const currentDate = new Date();
     const sign = prompt("What's your birthday? MM/DD/YYYY");
     const birthDay = new Date(sign);
-    var miliToDay = (1000 * 60 * 60 * 24)
-    var age = Math.floor((currentDate - birthDay) / miliToDay);
+    const miliToDay = 1000 * 60 * 60 * 24;
+    const age = Math.floor((currentDate - birthDay) / miliToDay);
     alert(age + " Days");
-    // 940621503079
-    // 10886
   </script>
 </head>
 <body>
