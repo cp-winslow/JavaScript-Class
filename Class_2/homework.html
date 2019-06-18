@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>A sample page</title>
+  <script>
+    const currentDate = new Date();
+    const sign = prompt("What's your birthday? MM/DD/YYYY");
+    const birthDay = new Date(sign);
+    const miliToDay = 1000 * 60 * 60 * 24;
+    const age = Math.floor((currentDate - birthDay) / miliToDay);
+    alert(age + " Days");
+  </script>
+</head>
+<body>
+</body>
+</html>
