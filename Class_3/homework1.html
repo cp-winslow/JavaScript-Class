@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Hour Calculator</title>
+  <script src="helper.js"></script>
+</head>
+
+<body>
+  <div id="main">
+
+  </div>
+  <script>
+    // Ask user to enter a number. Display what time will be after the number of hours is passed.
+    const date = new Date();
+
+    const sign = prompt("Enter a number");
+
+    var minutes = date.getMinutes();
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+
+    var hours = date.getHours();
+    hours = hours + Number(sign);
+
+    const pm = hours % 12;
+    const am = hours % 24;
+
+    var ampm = "";
+
+    if (am > 0 && am < 12) { // if the remainder is 0 or 12, this statement is false
+      hours = hours % 24;
+      hours = hours ? hours : "12"; // need to convert remainder of 0 to 12
+      ampm = "AM";
+    } else if (pm > 0) { // if the remainder is 0, this statement is false
+      hours = hours % 12;
+      hours = hours ? hours : "12"; // need to convert remainder of 0 to 12
+      ampm = "PM";
+    }
+
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+
+    echo("The time will be " + strTime + " in " + sign + " hours.");
+  </script>
+</body>
+</html>
