@@ -9,3 +9,27 @@
 1. (11 pts) With the separate prompts ask user to enter name, email, birth day and then password twice. Do simple validation for email and prompt again unless input contains @ symbol. If passwords do not match, ask again until they do. If user age is less than 13 years, display "To register one must be 13 years or older". Otherwise, using constructor function create an object with user details. Display "Successfully created account for " and show entered account information.
 
 P.S. Create the separate files for each assignment and homework. Create two branches, one for assignments and one for homework. Push your changes to the corresponding Github branches. Create pull requests to your master. You can use sample.html as a template. echo function defined in helper.js file will display results in the html.
+
+### Notes
+
+## switch
+
+switch (fruit) {
+  case: "banana":
+  case: "apple":
+    console.log("$2");
+    break;
+  case: "apricot":
+    console.log("$1");
+    break;
+  default;
+    console.log("We don't have this fruit.");
+}
+
+break is important if you want to break out of a certain function.
+
+## Self-executing anonymous function
+
+(function () {
+  Block of code
+}) ();
