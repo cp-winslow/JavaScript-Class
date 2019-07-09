@@ -1,4 +1,10 @@
-/* Create an object constructor function that represents a movie. The object should have ratings property that is an array of the rating numbers, and avgRating that should be average of the items in the array. The object should have a method addRating that adds rating to the array and also updates the averageRating.*/
+/* Create an object constructor function that represents a movie.
+The object should have ratings property that is an array of the rating numbers,
+and avgRating that should be average of the items in the array.
+The object should have a method addRating that adds rating to the array
+and also updates the averageRating.*/
+
+(function () {
 
   function Movie(title) {
     this.title = title;
@@ -19,3 +25,5 @@ console.log(movie.avgRating); // Output the current average rating.
 movie.addRating(6); // Not everyone liked it :(
 console.log(movie.avgRating); // Should be 8.
 console.log(movie.ratings); // Should output Array [10, 6]
+
+}) ();
