@@ -1,3 +1,8 @@
+/*Add a script to gallery.html that [sets]
+(https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute)
+title attribute for each image with the value matching its alt text.
+*/
+
 (function () {
 
   const imgs = document.querySelectorAll("img");
