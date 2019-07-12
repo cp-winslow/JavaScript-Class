@@ -10,10 +10,10 @@
   const currentDiv = document.querySelectorAll("figure");
 
   for (let i = 0; i < currentDiv.length; i++) {
-    let altText = currentDiv[i];
-    let newFigCaption = document.createElement("figcaption");
-    let newFigText = document.createTextNode(altText);
+    const altText = currentDiv[i].alt;
+    const newFigCaption = document.createElement("figcaption");
+    const newFigText = document.createTextNode(altText);
+    newFigCaption.appendChild(newFigText);
   }
-
 
 }) ();
