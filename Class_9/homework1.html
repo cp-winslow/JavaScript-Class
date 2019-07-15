@@ -104,6 +104,17 @@
   <script>
     (function () {
 
+      const currentDiv = document.querySelectorAll("figure");
+
+      for (let i = 0; i < currentDiv.length; i++) {
+        const altText = currentDiv[i].firstElementChild.alt;
+        const newFigCaption = document.createElement("figcaption");
+        const newFigText = document.createTextNode(altText);
+        newFigCaption.appendChild(newFigText);
+
+        currentDiv[i].insertAdjacentElement("beforeEnd", newFigCaption);
+      }
+      
     })();
   </script>
 </body>
