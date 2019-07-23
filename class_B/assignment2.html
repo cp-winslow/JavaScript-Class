@@ -146,15 +146,41 @@ navigation">
   </div>
   <script>
     /*
-    Using [setTimeout()] display the modal from index.html after 7 seconds of page load.
-    [setTimeout()](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout)
+    Define a function next, that activates next slide and slide indicator when called
+    (i.e. function should remove active class from the items and add it to the next ones).
+    If the last slide is active when function is called, it should activate the first slide.
+    The function should work for any number of slides.
     */
     (function () {
-      setTimeout (() => {
-        const modal = document.querySelector(".modal");
-        modal.style.display = "block";
-      }, 7000);
-    })();
+      function next() {
+        const slides = document.querySelectorAll(".carousel-item");
+
+        for (let i = 0; i < slides.length; i++) {
+          if (slides[i].classList.contains("active")) {
+            slides[i].classList.remove("active");
+            slides[(i + 1) % slides.length].classList.add("active");
+            break;
+          };
+        }
+
+        const indicator = document.querySelectorAll("[data-target='#carouselExample']")
+
+        for (let i = 0; i < indicator.length; i++) {
+          if (indicator[i].classList.contains("active")) {
+            indicator[i].classList.remove("active");
+            indicator[(i + 1) % indicator.length].classList.add("active");
+            break;
+          };
+        }
+      }
+    /*
+    Using [setInterval()] call the function defined above with 5 second intervals
+    [setInterval()](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval)
+    */
+      const interval = setInterval(() => {
+        next();
+      }, 5000);
+    }) ();
   </script>
 </body>
 </html>
