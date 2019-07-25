@@ -145,9 +145,6 @@ navigation">
     </div>
   </div>
   <script>
-    /*
-    Complete the carousel functionality. Previous arrow should activate the previous slide, next should activate the next. Slide indicators should activate corresponding slides. Make sure interval is also reset when any of the slide controls is clicked.
-    */
     (function () {
       function next() {
         const slides = document.querySelectorAll(".carousel-item");
@@ -173,7 +170,76 @@ navigation">
 
       const interval = setInterval(() => {
         next();
-      }, 5000);
+      }, 3000);
+
+      /*
+      Assign return value from setInterval above to a variable.
+      Add click event listener to the button that deactivates slideshow using [clearInterval()]
+      [clearInterval()](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/clearInterval).
+      */
+
+      const bigButton = document.querySelector(".btn.btn-lg.btn-success");
+
+      function disableSlideShow() {
+        clearInterval(interval);
+      };
+
+      bigButton.addEventListener("click", disableSlideShow);
+
+      /*
+      Complete the carousel functionality.
+      Previous arrow should activate the previous slide,
+      next should activate the next.
+      Slide indicators should activate corresponding slides.
+      Make sure interval is also reset when any of the slide controls is clicked.
+      */
+
+      function prev() {
+        const slides = document.querySelectorAll(".carousel-item");
+
+        for (let i = 0; i < slides.length; i++) {
+          if (i == -1) {
+            i = slides.length - 1;
+          }
+          if (slides[i].classList.contains("active")) {
+            slides[i].classList.remove("active");
+            slides[i - 1].classList.add("active");
+            break;
+          }
+        }
+
+        const indicator = document.querySelectorAll("[data-target='#carouselExample']")
+
+        for (let i = 0; i < indicator.length; i++) {
+          if (i == -1) {
+            i = indicator.length - 1;
+          }
+          if (indicator[i].classList.contains("active")) {
+            indicator[i].classList.remove("active");
+            indicator[i - 1].classList.add("active");
+            break;
+          }
+        }
+      }
+
+      //Previous Button
+      const prevButton = document.querySelector(".carousel-control-prev");
+      function prevSlide() {
+        prev();
+        clearInterval(interval);
+      };
+      prevButton.addEventListener("click", prevSlide);
+
+      //Next Button
+      const nextButton = document.querySelector(".carousel-control-next");
+      function nextSlide() {
+        next();
+        clearInterval(interval);
+      };
+      nextButton.addEventListener("click", nextSlide);
+
+
+
     })();
   </script>
 </body>

@@ -178,10 +178,13 @@ navigation">
       [clearInterval()](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/clearInterval).
       */
 
-      const disable = document.querySelector(".nav-link.disabled");
+      const bigButton = document.querySelector(".btn.btn-lg.btn-success");
 
-      
-      clearInterval(interval);
+      function disableSlideShow() {
+        clearInterval(interval);
+      };
+
+      bigButton.addEventListener("click", disableSlideShow);
     })();
   </script>
 </body>
