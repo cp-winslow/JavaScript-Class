@@ -196,30 +196,26 @@ navigation">
 
       function prev() {
         const slides = document.querySelectorAll(".carousel-item");
+        const sldArrLen = slides.length;
 
-        for (let i = 0; i < slides.length; i++) {
-          if (i == -1) {
-            i = slides.length - 1;
-          }
+        for (let i = 0; i < sldArrLen; i++) {
           if (slides[i].classList.contains("active")) {
             slides[i].classList.remove("active");
-            slides[i - 1].classList.add("active");
+            slides[(((i - 1) % sldArrLen) + sldArrLen) % sldArrLen].classList.add("active");
             break;
-          }
-        }
+          };
+        };
 
-        const indicator = document.querySelectorAll("[data-target='#carouselExample']")
+        const indicator = document.querySelectorAll("[data-target='#carouselExample']");
+        const indArrLen = indicator.length;
 
-        for (let i = 0; i < indicator.length; i++) {
-          if (i == -1) {
-            i = indicator.length - 1;
-          }
+        for (let i = 0; i < indArrLen; i++) {
           if (indicator[i].classList.contains("active")) {
             indicator[i].classList.remove("active");
-            indicator[i - 1].classList.add("active");
+            indicator[(((i - 1) % indArrLen) + indArrLen) % indArrLen].classList.add("active");
             break;
-          }
-        }
+          };
+        };
       }
 
       //Previous Button
@@ -237,8 +233,6 @@ navigation">
         clearInterval(interval);
       };
       nextButton.addEventListener("click", nextSlide);
-
-
 
     })();
   </script>
