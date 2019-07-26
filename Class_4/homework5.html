@@ -14,17 +14,21 @@
   from 0 to 100 inclusive (i.e. 0, 1, 4, 9 and etc.).
   But use only a single loop and addition.
   Do not use multiplication or any helper functions for exponentiation.*/
-
-  for (let i = 0; i < 100; i++) {
-    for (var i = 0; i < array.length; i++) {
-      array[i]
+  (function () {
+    let a = 1;
+    for (let i = 0; i <= 100; i++) {
+      if (i == 0 || i == 1) {
+        echo(i);
+      } else if (i % 2 != 0) {
+        a += i;
+        if (a > 100) {
+          break;
+        } else {
+        echo(a);
+        }
+      }
     }
-
-    if (Math.sqrt(i) % 1 === 0) {
-      echo(i);
-    }
-  }
-
+  })();
  </script>
 </body>
 </html>
