@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>AJAX Demo</title>
+  <!-- Bootstrap core CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Custom styles for this template -->
+  <style>
+    body {
+      padding-top: 5rem;
+    }
+
+    .starter-template {
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    .tab-body {
+      padding: 1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle
+navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Navbar</a>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="starter-template">
+      <h1>Bootstrap starter template</h1>
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua.
+        <br>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </div>
+    <div id="weather">
+    </div>
+  </div>
+  <!-- /.container -->
+  <script>
+  /*
+  Fork [node-js-demo](https://github.com/Kilavagora/node-js-demo).
+  Add a script to index.html that uses [XMLHttpRequest] to get the weather data from weather.json and then displays it.
+
+  [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
+
+  Push to your node-js-demo fork.
+  Deploy your application to heroku to test it.
+  Once it is working, copy index.html and push as index-xhr.html to your assigments branch for this class.
+  */
+    (function () {
+      const weather = document.querySelector("#weather");
+
+      const xhr = new XMLHttpRequest();
+
+      xhr.onload = function(e) {
+        if(this.status === 200) {
+          const data = JSON.parse(this.responseText);
+          const htmlFormat = `
+          <h3>Today's Forcast</h3>
+          <h4> Today's Date and Time: ${data.currentWeather.date}</h4>
+          <h4>City: ${data.currentWeather.location}</h4>
+          <span>Temperature: ${data.currentWeather.temperature}</span><br>
+          <span>Humidity: ${data.currentWeather.humidity}</span><br>
+          <span>Weather Conditions: ${data.currentWeather.text}</span><br>
+          <span>Pressure: ${data.currentWeather.pressure}</span>
+          `;
+          weather.innerHTML = htmlFormat;
+          console.log(data);
+        }
+      };
+
+      xhr.open("GET", "/weather.json");
+      xhr.send();
+    })();
+  </script>
+</body>
+
+</html>
