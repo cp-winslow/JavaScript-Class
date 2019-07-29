@@ -154,20 +154,13 @@ navigation">
     (function () {
       function next() {
         const slides = document.querySelectorAll(".carousel-item");
+        const indicator = document.querySelectorAll("[data-target='#carouselExample']");
 
         for (let i = 0; i < slides.length; i++) {
-          if (slides[i].classList.contains("active")) {
+          if (slides[i].classList.contains("active") && indicator[i].classList.contains("active")) {
             slides[i].classList.remove("active");
-            slides[(i + 1) % slides.length].classList.add("active");
-            break;
-          };
-        }
-
-        const indicator = document.querySelectorAll("[data-target='#carouselExample']")
-
-        for (let i = 0; i < indicator.length; i++) {
-          if (indicator[i].classList.contains("active")) {
             indicator[i].classList.remove("active");
+            slides[(i + 1) % slides.length].classList.add("active");
             indicator[(i + 1) % indicator.length].classList.add("active");
             break;
           };
