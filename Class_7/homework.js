@@ -5,55 +5,77 @@ With the separate prompts ask user to enter:
   2) email,
   3) birth day
   4) and then password twice.
-
-Do simple validation for email and prompt again unless input contains @ symbol.
-
-If passwords do not match, ask again until they do.
-
-If user age is less than 13 years, display "To register one must be 13 years or older".
-
-Otherwise, using constructor function create an object with user details.
-
-Display "Successfully created account for " and show entered account information.
 */
+(function() {
 
-(function myFunction() {
+  const userName = prompt("Please enter your username");
 
-  const userName = prompt("Please enter your name.");
-  let userEmail = prompt("Please enter your email address.");
-  const userBirthday = prompt ("Please enter your date of birth. Please use MM/DD/YYYY format.");
-  let userPassword1 = prompt("Please enter your password.");
-  let userPassword2 = prompt("Please enter your password again.");
-
-  if (userEmail.include("@") != true) {
-    userEmail = prompt("Invalid email address. Please enter a valid email address.");
+  let email = prompt("Please enter your email address");
+  //Do simple validation for email and prompt again unless input contains @ symbol.
+  function emailCheck(email) {
+    let count = 0;
+    for (let i = 0; i < email.length; i++) {
+      if (email.charAt(i) === "@") {
+        count = count + 1;
+      }
+    }
+    return count;
+  }
+  while (emailCheck(email) != 1) {
+    email = prompt("Please enter a valid email ID");
   }
 
-  if (userPassword1 !== userPassword2) {
-    alert("Passwords do not match. Please enter your password again.");
-    let userPassword1 = prompt("Please enter your password.");
-    let userPassword2 = prompt("Please enter your password again.");
+  let dateOfBirth = prompt(
+  "Please enter your Date of Birth",
+  "Please use the following format: MM/DD/YYYY"
+  );
+  //If user age is less than 13 years, display "To register one must be 13 years or older".
+  let dateFormatOfDateOfBirth = new Date(dateOfBirth + " 00:00");
+  const date = dateFormatOfDateOfBirth.getDate();
+  const month = dateFormatOfDateOfBirth.getMonth();
+  const year = dateFormatOfDateOfBirth.getFullYear();
+  function ageChecker(date, month, year) {
+    return new Date(year + 13, month, date) <= new Date();
+  }
+  while (dateFormatOfDateOfBirth == "Invalid Date") {
+    dateOfBirth = prompt(
+      "Invalid Date of Birth. Please enter a valid date",
+      "MM-DD-YYYY"
+    );
+    dateFormatOfDateOfBirth = new Date(dateOfBirth + " 00:00");
   }
 
-  const birthDay = new Date(userBirthday);
-  const currentDay = new Date();
-  const birthYear = birthDay.FullYear();
-  const currentYear = currentDay.FullYear();
 
-  const userAge = currentYear - birthYear;
-
-  if (userAge < 13) {
-    alert("To register one must be 13 years or older");
+  let password = prompt("Please enter your password");
+  let passwordConfirm = prompt("Please enter your password again");
+  //If passwords do not match, ask again until they do.
+  while (passwordConfirm !== password) {
+    passwordConfirm = prompt(
+      "Password didn't match. Please enter confirm password again",
+      "Confirm password should match with entered password"
+    );
   }
 
-  function userDetails(name, email, birthday, age) {
-    this.userName = name;
-    this.userEmail = email;
-    this.userBirthday = birthday;
-    this.userAge = age;
+  //Otherwise, using constructor function create an object with user details.
+  function userProfile(userName) {
+    this.username = userName;
+    this.password = "";
+    this.email = "";
+    this.birthday = "";
   }
 
-  alert("Successfully created account for " + userName);
-  echo(userDetails());
-
-}) ();
+  //Display "Successfully created account for " and show entered account information.
+  //If user age is less than 13 years, display "To register one must be 13 years or older".
+  if (ageChecker(date, month, year)) {
+    echo("Successfully created account for " + userName);
+    const userAccount = new userProfile(userName);
+    userAccount.password = password;
+    userAccount.email = email;
+    userAccount.birthday = dateOfBirth;
+    echo("User Name: " + userAccount.username);
+    echo("Email: " + userAccount.email);
+    echo("Date of Birth: " + userAccount.birthday);
+  } else {
+    echo("To register one must be 13 years or older.");
+  }
+})();
