@@ -1,11 +1,20 @@
-/*Write a function that takes an array as an argument
-and returns the array that has only a single item from the sequential duplicates.*/
+/*
+Write a function that takes an array as an argument
+and returns the array that has only a single item from the sequential duplicates.
+*/
 
 function clearDups(inpArray) {
-  for (let i = 0; i < inpArray.length; i++) {
-    let undupArray = [];
+  let clearedDupsArray = [];
+  const inpArrayLen = inpArray.length;
+  for (let i = 0; i < inpArrayLen - 1; i++) {
+    if (inpArray[i] !== inpArray[i + 1]) {
+      clearedDupsArray.push(inpArray[i]);
+    }
   }
-  return undupArray;
+  if (clearedDupsArray[clearedDupsArray.length - 1] !== inpArray[inpArrayLen - 1]) {
+    clearedDupsArray.push(inpArray[inpArrayLen - 1]);
+  }
+  return clearedDupsArray;
 }
 
 // Assuming the function is defined above:
