@@ -4,9 +4,8 @@ and returns an object containing character count of letters.*/
 (function () {
 
   function charCount(string) {
-    const charCountLen = string.length;
     const charCountObject = {};
-    for (let i = 0; i < charCountLen; i++) {
+    for (let i = 0; i < charCount.length; i++) {
       let current = string.charAt(i);
       if (charCountObject[current]) {
         charCountObject[current] = charCountObject[current] + 1;
