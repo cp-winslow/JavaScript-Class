@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <meta charset="UTF-8">
+ <title>A sample page</title>
+</head>
+<body>
+ <div id="main">
+  <h1 class="headline">Lorem ipsum</h1>
+  <p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+ </div>
+ <script>
+ /*
+ Open sample.html in a browser and from DOM panel, find h1 path. Using full path assign different value to its [textContent] property.
+
+ [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent)
+ */
+ (function () {
+  document.body.firstElementChild.lastElementChild.textContent = "Hello World!";
+
+  /*
+  Using [document.querySelector()] get h1 content and set it to be uppercase.
+
+  [document.querySelector()](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
+  */
+
+  const myElement = document.querySelector(".headline");
+
+  myElement.style.textTransform("");
+ })();
+ </script>
+</body>
+</html>
