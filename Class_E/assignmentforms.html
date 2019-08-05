@@ -110,17 +110,11 @@
   Allow form submission in form.html only if it has valid entries, passwords match and the checkbox is checked.
   */
     (function () {
-
       const form = document.getElementById("reg-form");
-      /* Option 1 */
-      //form.onsubmit = function () {
-      //  return false;
-      //};
-      /* Option 2 */
       form.addEventListener("submit", function (e) {
+
         //Username checker
         const reUserName = /^\S*$/;
-        const valueUserName = document.querySelector("#username");
         if (reUserName.test(valueUserName.value) !== true) {
           alert("Username must not have spaces");
           e.preventDefault();
@@ -129,7 +123,6 @@
         //email checker
         const reEmail = /.+\@.+\..+/;
         const valueEmail = document.querySelector("#email");
-
         if (reEmail.test(valueEmail.value) !== true) {
           alert("Please enter a Valid Email Address");
           e.preventDefault();
@@ -142,7 +135,6 @@
           alert("Password does not contain at least 4 characters");
           e.preventDefault();
         }
-
         //Confirm Password
         const valuePwd2 = document.querySelector("#password_confirm");
         if (valuePwd2.value !== valuePwd1.value) {
@@ -157,17 +149,6 @@
           e.preventDefault();
         }
       });
-
-      //const submitButton = document.getElementById("submit");
-      /* Option 3 */
-      //submitButton.onclick = function () {
-      //  return false;
-      //};
-      /* Option 4 */
-      //submitButton.addEventListener("click", function (e) {
-      //  e.preventDefault();
-      //});
-
     })();
   </script>
 </body>
