@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <meta charset="UTF-8">
+ <title>A sample page</title>
+ <script src="helper.js"></script>
+</head>
+<body>
+ <div id="main">
+
+ </div>
+ <script>
+  // Define a function that returns true if its argument is a palindrome, otherwise returns false. The function should work for strings and numbers. Verify the function with a few random examples and display the results.
+
+  function palindrome(str) {
+    const re = /[\W_]/g;
+
+    const lowRegStr = str.toLowerCase().replace(re, '');
+
+    const reverseStr = lowRegStr.split('').reverse().join('');
+
+    const palin = reverseStr === lowRegStr;
+
+    if (palin == true) {
+      echo("The phrase '" + sign + "' is a Palindrome.");
+    } else {
+      echo("The phrase '" + sign + "' is not a Palindrome.");
+    };
+  }
+
+  const sign = prompt("Enter a word, phrase, or set of numbers");
+
+  palindrome(sign);
+
+ </script>
+</body>
+</html>

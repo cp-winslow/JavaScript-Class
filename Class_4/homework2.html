@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <meta charset="UTF-8">
+ <title>A sample page</title>
+ <script src="helper.js"></script>
+</head>
+<body>
+ <div id="main">
+
+ </div>
+ <script>
+  /* Write a function that takes two integers and returns their product.
+  The product should be calculated with a loop using only addition. */
+
+  function product(str1, str2) {
+    let a = 0;
+    for (let i = 0; i < str2; i++) {
+      a += str1;
+    };
+    echo(a);
+  }
+
+  const sign1 = Number(prompt("Enter first integer:"));
+  const sign2 = Number(prompt("Enter second integer:"));
+
+  product(sign1, sign2);
+ </script>
+</body>
+</html>
