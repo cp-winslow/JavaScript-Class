@@ -14,3 +14,53 @@
 5. (23 pts) Do above, but use only a single loop and addition. Do not use multiplication or any helper functions for exponentiation.
 
 P.S. Create the separate files for each assignment and homework. Create two branches, one for assignments and one for homework. Push your changes to the corresponding Github branches. Create pull requests to your master. You can use sample.html as a template. echo function defined in helper.js file will display results in the html.
+
+## Class Notes
+
+# Functions
+
+Example 1
+  var square = function (n) {
+    return n*n;
+  }
+  echo(square(6));
+
+Example 2
+  function square(n) {
+    return n*n;
+  }
+
+  echo(square(6));
+
+Example 3
+  var square = (n) => {
+    return n*n;
+  }
+
+  echo(square(6));
+
+# Loops
+
+For Loop
+  for (let i=0; i < 10; i++) {
+    console.log(i+1);
+  }
+
+Increment
+  let a=5;
+  a++;
+  console.log(a);
+
+While Loop
+  let condition = true;
+  let p = 25;
+  while (condition) {
+    if (isPrime(i)) { // isPrime is a function
+      condition = false
+    }
+  }
+
+Stopping loop
+  if (true) {
+    break;
+  }

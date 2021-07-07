@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <meta charset="UTF-8">
+ <title>A sample page</title>
+ <script src="helper.js"></script>
+</head>
+<body>
+ <div id="main">
+
+ </div>
+ <script>
+  // Define a function that takes an integer as an argument and returns true if the argument is a prime number and false otherwise. Write a loop that displays numbers from 1 to 100 inclusive and whether it is a prime (i.e. 1 false, 2 true, 3 true and etc.).
+
+  function isPrime(n) {
+    if (n < 2) {
+      return false;
+    }
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+      if ((n % i) === 0) {
+        return false;
+      };
+    };
+    return true;
+  }
+
+  for (let num = 0; num <= 100 ; num++) {
+    echo(num + " is " + isPrime(num));
+  }
+ </script>
+</body>
+</html>
