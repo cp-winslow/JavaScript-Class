@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Hour Calculator</title>
+  <script src="helper.js"></script>
+</head>
+
+<body>
+  <div id="main">
+
+  </div>
+  <script>
+    // Ask user to enter a number. Display what time will be after the number of hours is passed.
+    const date = new Date();
+
+    const sign = prompt("Enter a number");
+
+    let minutes = date.getMinutes();
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+
+    let hours = date.getHours();
+    hours = hours + Number(sign);
+
+    const format24 = hours % 24;
+
+    const strTime = format24 + ':' + minutes;
+
+    echo("The time will be " + strTime + " in " + sign + " hours.");
+  </script>
+</body>
+</html>
